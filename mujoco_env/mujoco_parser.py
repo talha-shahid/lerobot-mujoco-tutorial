@@ -2161,12 +2161,10 @@ class MuJoCoParserClass(object):
             self.model,self.data,self.viewer.vopt,self.viewer.pert,
             cam,mujoco.mjtCatBit.mjCAT_ALL,self.viewer.scn)
         mujoco.mjr_render(viewport,self.viewer.scn,self.viewer.ctx)
-        # Grab RGBD
+        # Grab RGB only; this method does not return or use depth.
         rgb = np.zeros((viewport.height,viewport.width,3),dtype=np.uint8)
-        depth_raw = np.zeros((viewport.height,viewport.width),dtype=np.float32)
-        mujoco.mjr_readPixels(rgb,depth_raw,viewport,self.viewer.ctx)
-        rgb,depth_raw = np.flipud(rgb),np.flipud(depth_raw)
-        return rgb
+        mujoco.mjr_readPixels(rgb,None,viewport,self.viewer.ctx)
+        return np.flipud(rgb)
     
     def get_fixed_cam_rgbd_pcd(self,cam_name,downscale_pcd=0.1):
         """

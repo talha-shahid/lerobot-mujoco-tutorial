@@ -1,6 +1,11 @@
 # LeRobot Tutorial with MuJoCo
 This repository contains minimal examples for collecting demonstration data and training (or fine-tuning) vision language action models on custom datasets. 
 
+## Project Documentation
+
+Conceptual explanations, a glossary, data/evaluation guidance, troubleshooting,
+and presentation notes are collected in the [Markdown documentation index](markdown/README.md).
+
 ## Table of Contents
 - [:pencil: Installation](#installation)
 - [:mega: Updates and Plans](#updates--plans)
